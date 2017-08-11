@@ -1,0 +1,11 @@
+{
+  "name": "vue",
+  "version": "1.0.0",
+  "description": "xixi",
+  "main": "webpack.config.js",
+  "scripts": {
+    "dev": "webpack-dev-server --inline --open"
+  },
+  "author": "Owen",
+  "license": "ISC"
+}
