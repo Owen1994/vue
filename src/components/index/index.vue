@@ -1,13 +1,19 @@
 <template>
     <section>
-        <p>我是index</p>
+        <vue-carousel></vue-carousel>
+        <vue-nav></vue-nav>
     </section> 
 </template>
 
 <script>
-export default {
-    
+import ico_nav from './icon_nav.vue';
+import carousel from './carousel.vue';
 
+export default {
+    components:{
+        "vue-carousel":carousel,
+        "vue-nav":ico_nav
+    }
 }
 </script>
 
