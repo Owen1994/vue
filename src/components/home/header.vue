@@ -1,6 +1,6 @@
 <template>
-    <section>
-        <p>我是头部</p>
+    <section class="header">
+        <mt-header fixed title="微商"></mt-header>
     </section> 
 </template>
 
@@ -10,8 +10,10 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="less">
+    .header {
+        height: 40px;
+    }
 </style>
 
 
