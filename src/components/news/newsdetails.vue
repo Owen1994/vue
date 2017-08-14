@@ -13,17 +13,20 @@
                 </div>
             </div>
         </div>
+        <comment v-bind:id="id"></comment> 
     </section> 
 </template>
 
 <script>
 import title from "../../components/common/title.vue";
+import comment from "../../components/common/comment.vue";
 import config from '../../js/config';
 export default {
     data(){
         return {
             list:{},
-            title:"资讯详情"
+            title:"资讯详情",
+            id:this.$route.params.id
         }
     },
     methods:{
@@ -37,7 +40,8 @@ export default {
         this.getdetails();
     },
     components:{
-        "detail-title":title
+        "detail-title":title,
+        "comment":comment
     }
 }
 </script>
