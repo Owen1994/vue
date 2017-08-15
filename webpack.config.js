@@ -39,7 +39,7 @@ module.exports = {
                 use: 'html-loader'
             },
             {
-                test: /\.(png|gif|jpg|ttf)$/,
+                test: /\.(png|gif|jpg|ttf|svg)$/,
                 use: [
                     { loader: 'url-loader', options: { limit: 4000 } },
                     'image-webpack-loader'

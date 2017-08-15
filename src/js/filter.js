@@ -1,6 +1,7 @@
-import Vue from 'vue';
+// import Vue from 'vue';
 
-Vue.filter("formatDate",function(val,format){
+export default function(Vue){
+    Vue.filter("formatDate",function(val,format){
     let eryear = /YYYY/;
     let erMonth= /MM/;
     let eryDate = /DD/;
@@ -11,3 +12,4 @@ Vue.filter("formatDate",function(val,format){
     let date = time.getDate();
     return format.replace(eryear,year).replace(erMonth,month).replace(eryDate,date);
 })
+} 

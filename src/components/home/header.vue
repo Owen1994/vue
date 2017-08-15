@@ -1,6 +1,6 @@
 <template>
     <section class="header">
-        <mt-header fixed title="微商"></mt-header>
+        <mt-header fixed title="大商城"></mt-header>
     </section> 
 </template>
 
