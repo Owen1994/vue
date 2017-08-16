@@ -8,7 +8,9 @@
             <li v-for="(item,i) in listContent" :key="i">
                 <div class="mui-card">
                     <router-link :to='"/photo/details/"+item.id'>
-                        <div class="mui-card-header mui-card-media" :style="getstyle(item)"></div>
+                        <div class="mui-card-header">
+                            <img v-lazy="item.img_url" class="lazyimg">
+                        </div>
                     </router-link>
                     <div class="mui-card-content">
                         <div class="mui-card-content-inner">
@@ -53,9 +55,6 @@ export default {
                     });
                 }
             })
-        },
-        getstyle(item){
-             return "height:40vw;background-image:url(" + item.img_url + ")";
         }
     },
     components:{
@@ -85,7 +84,12 @@ export default {
                 float: left;
             }
         }
+        .mui-card-header > .lazyimg {
+            width: 100%;
+            height: 100%;
+        }
     }
+    
     image[lazy=loading] {
         width: 40px;
         height: 300px;

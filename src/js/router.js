@@ -5,6 +5,7 @@ import newsdetails from '../components/news/newsdetails.vue';
 import photolist from "../components/photo/photolist.vue";
 import photodetails from "../components/photo/photodetails.vue";
 import goodslist from "../components/goods/goodslist.vue";
+import goodsdetails from "../components/goods/goodsdetails.vue";
 
 export default new VueRouter({
     routes:[
@@ -17,6 +18,7 @@ export default new VueRouter({
         {path:'/photo/list',component:photolist},
         {path:'/photo/details/:imgid',component:photodetails},
         //商品模块路由配置
-        {path:'/goods/list',component:goodslist}
+        {path:'/goods/list',component:goodslist},
+        {path:'/goods/goodsdetails/:id',component:goodsdetails,name:'goodsD'}
     ]
 })

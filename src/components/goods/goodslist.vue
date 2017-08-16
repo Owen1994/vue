@@ -1,18 +1,20 @@
 <template>
     <section class="goodslist">
-        <v-title></v-title>
+        <v-title :title="title"></v-title>
         <ul class="mui-table-view mui-grid-view">
             <li class="mui-table-view-cell mui-media mui-col-xs-6" v-for="(item,i) in goodslist" :key="i">
-                <img class="mui-media-object" :src="item.img_url"> 
-                <div class="mui-media-body">{{ item.title }}</div>
-                <div class="info">
-                    <div class="price">
-                        <strong style="color:red">￥{{ item.sell_price }}</strong>
-                        <del style="font-size:14px">￥{{ item.market_price }}</del>
+                <router-link :to="{name:'goodsD',params:{id:item.id}}">
+                    <img class="mui-media-object" :src="item.img_url"> 
+                    <div class="mui-media-body">{{ item.title }}</div>
+                    <div class="info">
+                        <div class="price">
+                            <strong style="color:red">￥{{ item.sell_price }}</strong>
+                            <del style="font-size:14px">￥{{ item.market_price }}</del>
+                        </div>
+                        <span class="hot">热卖中</span>
+                        <span class="left">剩<strong>{{ item.stock_quantity }}</strong>件</span>
                     </div>
-                    <span class="hot">热卖中</span>
-                    <span class="left">剩<strong>{{ item.stock_quantity }}</strong>件</span>
-                </div>
+                </router-link>
             </li>
         </ul>
     </section>
@@ -25,6 +27,7 @@ import config from "../../js/config";
 export default {
     data(){
         return {
+            title:"商品列表",
             pagenumber:1,
             goodslist:[]
         }
