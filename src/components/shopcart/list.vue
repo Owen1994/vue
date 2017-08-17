@@ -29,7 +29,7 @@
         </ul>
       </div>
       <div class="total_btn">
-        <mt-button type="primary">付 款</mt-button>
+        <mt-button type="primary" @click="check">付 款</mt-button>
       </div>
     </div>
 
@@ -37,13 +37,14 @@
 </template>
 
 <script>
+import { Toast } from 'mint-ui';
 import config from "../../js/config";
 import numBox from "../common/numberBox.vue";
 import numById from "../../js/common/goodsNum";
 export default {
     data(){
         return {
-            ids:this.$route.params.ids,
+            ids:numById.getIdList(),
             shopcartList:[]
         }
     },
@@ -67,11 +68,23 @@ export default {
             numById.set(id,num);
             this.shopcartList[0].selected = !this.shopcartList[0].selected;
             this.shopcartList[0].selected = !this.shopcartList[0].selected;
+            
+            document.querySelector(".mui-badge").innerHTML = this.totalNum;
         },
         remove(id){
             numById.remove(id);
             let delIndex = this.shopcartList.findIndex(item => item.id == id);
             delIndex > -1 && this.shopcartList.splice(delIndex, 1);
+        },
+        check(){
+            let hasSelected = this.shopcartList.some((val) => val.selected && numById.get(val.id))
+            if(!hasSelected){
+                Toast('请至少选购一件商品！');
+            }else if(document.cookie && /SESSIONID=\w+/.test(document.cookie)){
+                this.$router.push({name:"shopcartOrder"})
+            }else{
+                this.$router.push({name:"login",query:{nextpage:"/shopcart/order"}})
+            }
         }
     },
     computed:{
@@ -82,7 +95,8 @@ export default {
                 if(val.selected){
                     sum += numById.get(val.id);
                 }
-            })
+            });
+            // document.querySelector(".mui-badge").innerHTML = sum;
             return sum;
         },
         totalPrice(){

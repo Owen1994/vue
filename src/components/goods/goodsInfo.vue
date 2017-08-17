@@ -13,6 +13,7 @@
 
 <script>
 import config from "../../js/config.js";
+import http from "../../js/cache/http.js"
 export default {  
     data(){
         return {
@@ -22,13 +23,16 @@ export default {
     props:["id"],
     methods:{
         getInfo(){
-            let url = config + "/api/goods/getdesc/" + this.id
-            this.$http.get(url).then((res) => {
-                let resbody = res.body;
-                if(resbody.status == 0){
-                    this.info = resbody.message[0];
-                }
+            let url = config + "/api/goods/getdesc/" + this.id;
+            http.get(url,(resbody) => {
+                this.info = resbody.message[0];
             })
+            // this.$http.get(url).then((res) => {
+            //     let resbody = res.body;
+            //     if(resbody.status == 0){
+            //         this.info = resbody.message[0];
+            //     }
+            // })
         }
     },
     created:function(){

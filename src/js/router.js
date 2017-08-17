@@ -7,6 +7,8 @@ import photodetails from "../components/photo/photodetails.vue";
 import goodslist from "../components/goods/goodslist.vue";
 import goodsdetails from "../components/goods/goodsdetails.vue";
 import shopcartList from "../components/shopcart/list.vue";
+import shopcartOrder from "../components/shopcart/order.vue";
+import login from "../components/user/login.vue";
 
 export default new VueRouter({
     routes:[
@@ -23,5 +25,8 @@ export default new VueRouter({
         {path:'/goods/goodsdetails/:id',component:goodsdetails,name:'goodsD'},
         //购物车
         {path:'/shopcart/list/:ids',component:shopcartList,name:"shopcartList"},
+        {path:'/shopcart/order',component:shopcartOrder,name:"shopcartOrder"},
+        // 登录
+        {path:'/login',component:login,name:"login"}
     ]
 })

@@ -22,12 +22,12 @@
 </template>
 
 <script>
-import goodsById from "../../js/common/goodsNum";
+import goodsById from "../../js/common/goodsNum.js";
 export default {
     data(){
 		return {
-			total:goodsById.get(),
-			shopcartId:goodsById.getIdList().toString()
+			shopcartId:goodsById.getIdList().toString(),
+			total:goodsById.get()
 		}
 	}
 }
