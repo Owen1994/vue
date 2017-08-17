@@ -16,7 +16,7 @@
       </div>
       <!-- 按钮 -->
       <div class="mui-card-footer">
-      	<button type="button" class="mui-btn mui-btn-success mui-btn-block mui-btn-outlined">结算</button>
+      	<router-link :to="'/shopcart/list/'+shopcartId" class="mui-btn mui-btn-success mui-btn-block mui-btn-outlined">结算</router-link>
         <div></div>
         <button type="button" class="mui-btn mui-btn-success mui-btn-block mui-btn-outlined" @click="addToShopcart">加入购物车</button>
       </div>
@@ -58,7 +58,8 @@
               info:{},
               selectTab:'introduce',
               id:this.$route.params.id,
-              sendVal:numById.get(this.$route.params.id)
+              sendVal:numById.get(this.$route.params.id),
+              shopcartId:numById.getIdList().toString()
             }
         },
         methods:{

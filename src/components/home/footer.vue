@@ -9,7 +9,7 @@
 				<span class="mui-icon mui-icon-contact"></span>
 				<span class="mui-tab-label">会员</span>
 			</a>
-			<a class="mui-tab-item" href="#tabbar-with-contact">
+			<a class="mui-tab-item" :href="'#/shopcart/list/'+shopcartId">
 				<span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge">{{ total }}</span></span>
 				<span class="mui-tab-label">购物车</span>
 			</a>
@@ -26,7 +26,8 @@ import goodsById from "../../js/common/goodsNum";
 export default {
     data(){
 		return {
-			total:goodsById.get()
+			total:goodsById.get(),
+			shopcartId:goodsById.getIdList().toString()
 		}
 	}
 }
